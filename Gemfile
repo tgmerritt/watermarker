@@ -22,3 +22,6 @@ group :development do
   gem 'better_errors'
   gem 'rails_layout'
 end
+
+gem 'rails_12factor', group: :production
+gem 'puma'
