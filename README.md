@@ -31,6 +31,14 @@ Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.
 Getting Started
 ---------------
 
+I created this because a co-worker of mine has the need to watermark images before posting them to social media.  So why use Photoshop or an Automator routine when you can over-engineer an entire web app?  
+
+I did this entirely in a couple hours - so I'm sure it's full of holes.  There are no tests, because I live on the edge when it's for personal projects.
+
+This app includes an entire Rails stack backed by PostgreSQL.  I don't use it for any reason in this form - but if you wanted to store watermarked images on AWS using CarrierWave or PaperClip or something and then push the file paths into a database, you could start with this app and build in that functionality.
+
+You could also build in batch processing for entire directories or whatever else you want.  I had fun making this - but it's time for bed...
+
 Documentation and Support
 -------------------------
 
