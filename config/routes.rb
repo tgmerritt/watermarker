@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  resources :markers
+  root to: 'markers#index'
 end
