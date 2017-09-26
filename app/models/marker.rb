@@ -2,7 +2,7 @@ class Marker < ActiveRecord::Base
 
   # Watermarking image with another image using Imagemagick 'composite', 'watermark' and 'dissolve'.
   require "rubygems"
-  require "RMagick"
+  require "rmagick"
   include Magick
 
   def self.watermark(source, watermark)
