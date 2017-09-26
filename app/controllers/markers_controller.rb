@@ -25,9 +25,10 @@ class MarkersController < ApplicationController
   # POST /markers
   # POST /markers.json
   def create
-    file = Marker.watermark(marker_params[:source], marker_params[:watermark])
+    file        = Marker.new
+    watermarked = file.watermark(marker_params)
 
-    send_file(file)
+    send_file(watermarked)
   end
 
   # PATCH/PUT /markers/1

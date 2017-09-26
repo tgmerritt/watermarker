@@ -5,7 +5,24 @@ class Marker < ActiveRecord::Base
   require "rmagick"
   include Magick
 
-  def self.watermark(source, watermark)
+  def define_gravity(location)
+    @gravity =
+        case location
+          when "Upper-Left"
+            Magick::NorthWestGravity
+          when "Upper-Right"
+            Magick::NorthEastGravity
+          when "Lower-Left"
+            Magick::SouthWestGravity
+          when "Lower-Right"
+            Magick::SouthEastGravity
+          else
+            Magick::SouthEastGravity
+        end
+  end
+
+  def watermark(params)
+    define_gravity(params[:location])
 
 # Read the image in the memory with RMagick
 #   puts "What is the image file you want to watermark?"
@@ -14,7 +31,7 @@ class Marker < ActiveRecord::Base
 #
 #   path = "/Users/i851546/Screen Shot 2017-09-14 at 12.45.40.png" if path.length == 0
 
-    img                   = Magick::Image.from_blob(source.read).first
+    img                   = Magick::Image.from_blob(params[:source].read).first
 
 # the original image was in jpg format
 # need to make the white background color transparent
@@ -28,7 +45,7 @@ class Marker < ActiveRecord::Base
 #
 # watermark_path = "/Users/i851546/Documents/SAP/sap_anywhere_logo.png" if watermark_path.length == 0
 
-    mark                  = Magick::Image.from_blob(watermark.read).first
+    mark                  = Magick::Image.from_blob(params[:watermark].read).first
 
 # set the canvas to transparent
 # if we do not specify 'background_color' on 'mark' then on rotation the background color will be black.
@@ -57,11 +74,11 @@ class Marker < ActiveRecord::Base
 # We define which image to composite (img is the source image we want watermarked), then we define where that watermark should start
 # finally we say that the watermark should be composed over the top of the source image with OverCompositeOp
 
-    img1                  = img.composite(watermark, Magick::SouthEastGravity, 25, 25, Magick::OverCompositeOp)
+    img1                  = img.composite(watermark, @gravity, 25, 25, Magick::OverCompositeOp)
 
 # save the watermarked image
 
-    filename = "watermarked_at_#{Time.now.to_i}"
+    filename              = "watermarked_at_#{Time.now.to_i}"
 
     img1.write(Rails.root.join('public', "#{filename}.jpg"))
 
