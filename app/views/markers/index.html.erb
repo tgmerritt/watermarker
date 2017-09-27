@@ -85,7 +85,7 @@
           <%= select_tag :location, options_for_select(["Upper-Left", "Upper-Right", "Lower-Left", "Lower-Right"], "Lower-Right"), class: "custom-select", name: "marker[location]", id: "marker_location" %>
 	      <p></p>
 	        <%= label(:marker, "Scale watermark down by (%)") %>
-	        <%= select_tag :size, options_for_select((0..100).step(5), 60), class: "custom-select", name: "marker[size]", id: "marker_size"  %>
+	        <%= select_tag :size, options_for_select((5..100).step(5), 60), class: "custom-select", name: "marker[size]", id: "marker_size"  %>
 
         <!--<a class="btn btn-success" href="#" role="button">Do Magick &raquo;</a></p>-->
       </div>
