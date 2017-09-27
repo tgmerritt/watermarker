@@ -26,12 +26,16 @@ class Marker < ActiveRecord::Base
     @extension = File.extname(filename)
   end
 
+  def get_file_data(file)
+    return Magick::Image.from_blob(file.read).first
+  end
+
   def watermark(params)
     define_gravity(params[:location])
     set_filename_and_extension(params[:source].original_filename)
 
-    img                   = Magick::Image.from_blob(params[:source].read).first
-    mark                  = Magick::Image.from_blob(params[:watermark].read).first
+    img                   = get_file_data(params[:source])
+    mark                  = get_file_data(params[:watermark])
     mark.background_color = "Transparent" # set the canvas to transparent
     scale_value           = (params[:size].to_f / 100)
     watermark             = mark.resize_to_fit(img.rows * scale_value, img.columns * scale_value) # resize the watermark to 60% of the image we want to watermark
