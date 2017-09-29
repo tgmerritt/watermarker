@@ -13,77 +13,82 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
-	  (adsbygoogle = window.adsbygoogle || []).push({
-		  google_ad_client: "ca-pub-5409055050585472",
-		  enable_page_level_ads: true
-	  });
-  </script>
-  <meta name="google-site-verification" content="0NtVPjEtg-Zlty2JBH9tUgYpxF4KkMm--ykbdS6fRio" />
+   (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5409055050585472",
+    enable_page_level_ads: true
+  });
+</script>
+<meta name="google-site-verification" content="0NtVPjEtg-Zlty2JBH9tUgYpxF4KkMm--ykbdS6fRio" />
 </head>
 
 <body>
 
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-  <a class="navbar-brand" href="#">The Watermarker</a>
-</nav>
+  <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <a class="navbar-brand" href="#">The Watermarker</a>
+  </nav>
 
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="container">
-    <h3 class="display-4">Hello, h00man!</h3>
-    <p>You need to add your corporate logo or some other watermark to an image, and you don't have an image editing application handy, right?  Select the source image first, then the logo image, then click the green button and get your watermarked image back!  This utility was created to help people online do one thing quickly and FOR FREE, but it would be great if you click on one of the ads that you see.</p>
-    <p><a class="btn btn-primary btn-lg" href="http://misaiato.blogspot.com" role="button">About me &raquo;</a></p>
-  </div>
-</div>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h3 class="display-4">Hello, h00man!</h3>
+      <p>You need to add your corporate logo or some other watermark to an image, and you don't have an image editing application handy, right?  Select the source image first, then the logo image, then click the green button and get your watermarked image back!  This utility was created to help people online do one thing quickly and FOR FREE, but it would be great if you click on one of the ads that you see.</p>
+      <p><a class="btn btn-primary btn-lg" href="http://misaiato.blogspot.com" role="button">About me &raquo;</a></p>
+      <p></p>
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5409055050585472"
-     data-ad-slot="1549010030"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+      style="display:block; text-align:center;"
+      data-ad-layout="in-article"
+      data-ad-format="fluid"
+      data-ad-client="ca-pub-5409055050585472"
+      data-ad-slot="1549010030"></ins>
+      <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+     </script>
 
-<div class="container">
+     <p>I'll be adding additional functions to the watermarker over time - like overlay, diffused overlay, rotation on an axis, centering, and other types of watermarking time permitting.  Use this tool as much as you'd like - please share the tool with others.</p>  
+   </div>
+ </div>
+
+
+
+ <div class="container">
   <%= form_for @marker do |m| %>
-    <div class="row">
-      <div class="col-md-4">
-        <h2>Source Image</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Source Image</h2>
 
-        <p>Select the file that you want to add a watermark to from the select box below.</p>
-        <%= m.file_field :source %>
-      </div>
-      <div class="col-md-4">
-        <h2>Watermark Image</h2>
-
-        <p>Select the image you want to use as your watermark from the select box below. This is typically your
-          corporate logo or some other text that will layer on top of the source image. </p>
-        <%= m.file_field :watermark %>
-      </div>
-      <div class="col-md-4">
-        <h2>Options</h2>
-          <%= label(:marker, :watermark_position) %>
-          <%= select_tag :location, options_for_select(["Upper-Left", "Upper-Right", "Lower-Left", "Lower-Right"], "Lower-Right"), class: "custom-select", name: "marker[location]", id: "marker_location" %>
-	      <p></p>
-	        <%= label(:marker, "Scale watermark down by (%)") %>
-	        <%= select_tag :size, options_for_select((5..100).step(5), 60), class: "custom-select", name: "marker[size]", id: "marker_size"  %>
-      </div>
+      <p>Select the file that you want to add a watermark to from the select box below.</p>
+      <%= m.file_field :source %>
     </div>
-    <div class="row" style="padding-top: 45px">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <h2>Do Magick!</h2>
+    <div class="col-md-4">
+      <h2>Watermark Image</h2>
 
-        <p>Click the button below to watermark your image</p>
+      <p>Select the image you want to use as your watermark from the select box below. This is typically your
+      corporate logo or some other text that will layer on top of the source image. </p>
+      <%= m.file_field :watermark %>
+    </div>
+    <div class="col-md-4">
+      <h2>Options</h2>
+      <%= label(:marker, :watermark_position) %>
+      <%= select_tag :location, options_for_select(["Upper-Left", "Upper-Right", "Lower-Left", "Lower-Right"], "Lower-Right"), class: "custom-select", name: "marker[location]", id: "marker_location" %>
+      <p></p>
+      <%= label(:marker, "Scale watermark down by (%)") %>
+      <%= select_tag :size, options_for_select((5..100).step(5), 60), class: "custom-select", name: "marker[size]", id: "marker_size"  %>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 45px">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h2>Do Magick!</h2>
 
-        <p class="center"><%= m.submit "Do Magick!", class: "btn btn-success" %>
+      <p>Click the button below to watermark your image</p>
+
+      <p class="center"><%= m.submit "Do Magick!", class: "btn btn-success" %>
       </div>
 
     </div>
-    </div>
+  </div>
   <% end %>
 
   <hr>
@@ -91,16 +96,16 @@
   <footer>
     <p>&copy; Tyler 2017</p>
   </footer>
-  </div>
+</div>
 
   <!-- Bootstrap core JavaScript
-	================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-  <script src="../../dist/js/bootstrap.min.js"></script>
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-</html>
+   ================================================== -->
+   <!-- Placed at the end of the document so the pages load faster -->
+   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+   <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+   <script src="../../dist/js/bootstrap.min.js"></script>
+   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+ </body>
+ </html>
